@@ -2,7 +2,7 @@ object ceasar extends App{
     val alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
     val Encrypt=(c:Char,key:Int,alphabet:String)=> alphabet((alphabet.indexOf(c.toUpper)+key)%alphabet.size)
-    val Decrypt=(c:Char,key:Int,alphabet:String)=> alphabet(Math.abs(26+alphabet.indexOf(c.toUpper)-key%alphabet.size)%alphabet.size)
+    val Decrypt=(c:Char,key:Int,alphabet:String)=> alphabet(Math.abs(alphabet.size+alphabet.indexOf(c.toUpper)-key%alphabet.size)%alphabet.size)
 
     val cipher=(algo:(Char,Int,String)=> Char,s:String,key:Int,alphabet:String)=>
         s.map(algo(_,key,alphabet))
